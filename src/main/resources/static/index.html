@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Getting to Philosophy</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="/css/app.css">-->
+</head>
+<body>
+<div class="row">
+    <div class="col-mid-1">
+        <h2>Wikipedia - Getting To Philosophy</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-mid-6">
+        <div class="container" ng-app="app" ng-controller="findPhilosophy">
+            <div>
+                <div class="form-error" ng-show="error">{{error}}</div>
+                <form>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="wikiurl" placeholder="You can try https://en.wikipedia.org/wiki/Ethology or just Ethology" ng-model="wikiurl" required/>
+                        <button class="btn" ng-click="find()">Find</button>
+                    </div>
+                </form>
+
+                <div ng-show="topic.linkCount">Wikipedia URL: {{topic.url}}</div>
+                <div ng-show="topic.linkCount">Total Links to get to Philosophy: {{topic.linkCount}}</div>
+                <ul ng-repeat="link in topic.links">
+                    <li><a href="{{link.url}}" target="_blank">{{link.title}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/webjars/angularjs/1.4.9/angular.js"></script>
+<!--<script src="/webjars/angularjs/1.4.9/angular-resource.js"></script>-->
+<!--<script src="/webjars/angularjs/1.4.9/angular-route.js"></script>-->
+<script src="/js/app.js"></script>
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css">
+</body>
+</html>
